@@ -1,8 +1,13 @@
 package com.productmanagement;
 
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ProductService {
+
+  @Autowired ProductRepository productRepository;
 
   ProductDB db = new ProductDB();
 
@@ -33,5 +38,9 @@ public class ProductService {
   public List<Product> getProductsByWarranty(int warranty) {
     // Convert int to String since the DB method expects a String
     return db.getProductsByWarranty(warranty);
+  }
+
+  public List<Product> findAll() {
+    return productRepository.findAll();
   }
 }
