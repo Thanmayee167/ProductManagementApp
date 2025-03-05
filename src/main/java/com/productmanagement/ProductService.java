@@ -1,32 +1,37 @@
 package com.productmanagement;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ProductService {
-    private List<Product> products;
 
-    public ProductService() {
-        products = new ArrayList<>();
-    }
+  ProductDB db = new ProductDB();
 
-    public void addProduct(Product product) {
-        products.add(product);
-    }
+  public void addProduct(Product product) {
+    db.addProduct(product);
+  }
 
-    public List<Product> getAllProducts() {
-        return products;
-    }
+  public List<Product> getAllProducts() {
+    return db.getAllProducts();
+  }
 
-    public List<Product> getProductsByPlace(String place) {
-        return products.stream()
-                .filter(product -> product.getPlace().equalsIgnoreCase(place))
-                .toList();
-    }
+  public Product getProductByName(String name) {
+    return db.getProductByName(name);
+  }
 
-    public List<Product> getProductsByWarranty(String warranty) {
-        return products.stream()
-                .filter(product -> product.getWaranty().equals(warranty))
-                .toList();
-    }
+  public void updateProduct(Product product) {
+    db.updateProduct(product);
+  }
+
+  public void deleteProduct(String name) {
+    db.deleteProduct(name);
+  }
+
+  public List<Product> getProductsByPlace(String place) {
+    return db.getProductsByPlace(place);
+  }
+
+  public List<Product> getProductsByWarranty(int warranty) {
+    // Convert int to String since the DB method expects a String
+    return db.getProductsByWarranty(warranty);
+  }
 }

@@ -4,16 +4,16 @@ public class Product {
     private String name;
     private String type;
     private String place;
-    private String waranty;
+    private int warranty;
 
-    public Product() {
+    public Product() {  
     }
 
-    public Product(String name, String type, String place, String waranty) {
+    public Product(String name, String type, String place, int warranty) {
         this.name = name;
         this.type = type;
         this.place = place;
-        this.waranty = waranty;
+        this.warranty = warranty;
     }
 
     public String getName() {
@@ -40,12 +40,12 @@ public class Product {
         this.place = place;
     }
 
-    public String getWaranty() {
-        return waranty;
+    public int getWarranty() {
+        return warranty;
     }
 
-    public void setWaranty(String waranty) {
-        this.waranty = waranty;
+    public void setWarranty(int warranty) {
+        this.warranty = warranty;
     }
 
     @Override
@@ -54,7 +54,7 @@ public class Product {
                 "name='" + name + '\'' +
                 ", type='" + type + '\'' +
                 ", place='" + place + '\'' +
-                ", waranty='" + waranty + '\'' +
+                ", warranty='" + warranty + '\'' +
                 '}';
     }
 } 
